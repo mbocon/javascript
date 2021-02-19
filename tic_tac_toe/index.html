@@ -9,21 +9,24 @@
 	</head>
 	<body>
 		<main>
-			<h2>Tic Tac Toe</h2>
+			<h1>Tic Tac Toe</h1>
 		</main>
-		<div class="gameBoard">
-			<div data-cell-index="0" class="cell"></div>
-			<div data-cell-index="1" class="cell"></div>
-			<div data-cell-index="2" class="cell"></div>
-			<div data-cell-index="3" class="cell"></div>
-			<div data-cell-index="4" class="cell"></div>
-			<div data-cell-index="5" class="cell"></div>
-			<div data-cell-index="6" class="cell"></div>
-			<div data-cell-index="7" class="cell"></div>
-			<div data-cell-index="8" class="cell"></div>
+		<div class="container">
+			<h2>Let's Play!</h2>
+			<div class="gameBoard">
+				<div id="0" class="box" onclick="boxClicked(this.id)"></div>
+				<div id="1" class="box" onclick="boxClicked(this.id)"></div>
+				<div id="2" class="box" onclick="boxClicked(this.id)"></div>
+				<div id="3" class="box" onclick="boxClicked(this.id)"></div>
+				<div id="4" class="box" onclick="boxClicked(this.id)"></div>
+				<div id="5" class="box" onclick="boxClicked(this.id)"></div>
+				<div id="6" class="box" onclick="boxClicked(this.id)"></div>
+				<div id="7" class="box" onclick="boxClicked(this.id)"></div>
+				<div id="8" class="box" onclick="boxClicked(this.id)"></div>
+			</div>
+			<h1 id="gameText"></h1>
+			<button id='restartBtn' class="gameRestartBtn">Restart Game</button>
 		</div>
-		<h3 class="gameStatus"></h3>
-		<button class="gameRestartBtn">Restart Game</button>
 		<script src="script.js"></script>
 	</body>
 </html>
