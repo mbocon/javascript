@@ -1,14 +1,14 @@
-// creating the players
+// CREATING THE PLAYERS
 const playerOne = 'O';
 const playerTwo = 'X';
 
-// getting restart button
+// GETTING RESTART BUTTON FROM DOM
 let restartBtn = document.getElementById('restartBtn')
 
-//playerOne goes first
+// PLAYER ONE GOES FIRST
 let currentPlayer = playerOne;
 
-// creating the array to hold taken positions on the gameboard
+// CREATING THE ARRAY TO HOLD TAKEN POSITION ON THE GAMEBOARD
 const spaces = [null, null, null, null, null, null, null, null, null];
 
 const boxClicked = id => {
@@ -80,6 +80,7 @@ const playerHasWon = () => {
 	}
 };
 
+// RESTART BUTTON
 restartBtn.addEventListener('click', () => {
     window.location.reload()
 })
