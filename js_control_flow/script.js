@@ -331,7 +331,7 @@ console.log(movies.join(', '))
 // FUNCTIONS 
 
 
-/ Function declaration vs Function Expression
+// Function declaration vs Function Expression
 
 
 // declaration
