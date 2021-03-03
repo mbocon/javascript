@@ -435,11 +435,165 @@ function computeArea(w, h) {
 // }
 
 
+
+
 /////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 // OBJECTS
+
+
+// let's create a game object
+
+const game = { 
+  title: 'Guess the Number!', 
+  smallestNum: 0,
+  biggestNum: 100,
+  numGuesses: 0,
+  secretNum: null,
+  play: function() {
+    this.secretNum = Math.floor(Math.random() * (this.biggestNum - this.smallestNum + 1) + this.smallestNum)
+  }
+};
+
+game.play()
+
+
+
+// some other code or function down here later in our program
+// game.smallestNum = 0;
+
+// later on in our program
+// game.numGuesses = 0;
+// game.smallestNum = 1;
+
+// for (let key in game) {
+//   console.log(game[key]);
+// }
+
+// Object static methods - methods that are callable on the Object class
+
+// Object.keys - gets an array of the object's keys
+
+// console.log(Object.keys(game));
+
+// Object.values - gets an array of the object's values
+
+// console.log(Object.values(game));
+
+// Object.entries - gets an 2D array of the the object's key: value pairs
+
+// console.log(Object.entries(game));
+
+
+
+// console.log(game);
+
+
+// demo of one use case for object square bracket notation
+
+const catalog = {
+  'abc-123': 12.99,
+  'xyz-456': 6.99,
+  'jkl-789': 13.95,
+};
+
+delete catalog['abc-123'];
+// console.log(catalog);
+
+
+// console.log(catalog['arf-724'])
+
+// let sku = '';
+
+// do {
+//   var sku = prompt('Enter SKU or "quit" to exit: ');
+//   if(sku in catalog) {
+//     let price = catalog[sku];
+//     alert('The price of ' + sku + ' is ' + price);
+//   } else if(sku !== 'quit') {
+//     alert('Invalid SKU - Please try again');
+//   }
+// } while(sku !== 'quit');
+
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+// CLASSES 
+
+
+
+// let's define our first class
+
+class Vehicle {
+  constructor(vin, make, model) {
+    this.vin = vin;
+    this.make = make;
+    this.model = model;
+    this.running = false;
+  }
+  start() {
+    this.running = true;
+    console.log('running ... ');
+  }
+  stop() {
+    this.running = false;
+    console.log('stopped ... ')
+  }
+  toString() {
+    return `Vehicle (${this.vin}) is a ${this.make} model ${this.model}`
+  }
+  static about() {
+    console.log('I am the Vehicle class');
+  }
+}
+
+// instantiate the class
+
+// const v1 = new Vehicle('X123Y', 'Boeing', '747'); // this is a Vehicle class instance - a vehicle object
+
+// const car = new Vehicle('A1234', 'Toyota', 'Camry');
+
+// const cars = [];
+
+// for(let i = 0; i < 6; i++) {
+//   cars.push(new Vehicle(Date.now(), 'Toyota', 'Camry'))
+// }
+
+// console.log(cars)
+
+class Plane extends Vehicle {
+  constructor(vin, make, model, airline) {
+    super(vin, make, model);
+    this.airline = airline;
+  }
+  engageAutoPilot() {
+    console.log('Look mom, no hands!');
+  }
+}
+
+const spyPlane = new Plane('top secret', 'Lockheed', 'SR-71', 'USAF');
+
+// console.log(spyPlane);
+
+
+class Automobile extends Vehicle {
+  constructor(vin, make, model, numDoors) {
+    super(vin, make, model);
+    this.numDoors = numDoors;
+  }
+  honk() {
+    console.log('Beep!');
+  }
+}
+
+const fastCar = new Automobile('TS123z', 'Tesla', 'P100D', 4);
+
+console.log(fastCar)
+
+
 
 
 
