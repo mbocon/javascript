@@ -1,1 +1,1 @@
-This repo is used to house my vanilla js projects/exercises/etc.
+This repo is used to house my js projects/exercises/etc.
