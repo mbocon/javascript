@@ -1,0 +1,45 @@
+body {
+	background-color: #7feeffd7;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+.content {
+	margin-top: 10rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.input-area {
+	text-align: center;
+}
+
+input,
+button {
+	padding: 0.75rem;
+	outline: none;
+}
+
+button {
+	border-radius: 0.5rem;
+	color: rgb(26, 26, 26);
+	background-color: #0ebe14;
+}
+
+button:hover {
+	cursor: pointer;
+	color: black;
+	background-color: #26ff05;
+}
+
+p {
+	font-size: 2rem;
+	margin-left: 0.75rem;
+}
+
+.counter {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
