@@ -1,6 +1,5 @@
 $(() => {
 	const $input = $('input');
-	const $button = $('button');
 	const $location = $('#location');
 	const $temp = $('#tempurature');
 	const $feels = $('#feels');
