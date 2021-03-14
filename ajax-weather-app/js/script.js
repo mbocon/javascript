@@ -28,10 +28,11 @@ $(() => {
 	});
 
 	function render(data) {
+		const weather = data.weather[0].description
 		$location.text('Weather For : ' + data.name);
 		$temp.text('Tempurature : ' + Math.round(data.main.temp) + ' F');
 		$feels.text('Feels liks : ' + Math.round(data.main.feels_like) + ' F');
-		$weather.text('Weather : ' + data.weather[0].description);
+		$weather.text('Weather : ' + weather.charAt(0).toUpperCase() + weather.slice(1));
 	}
 
 	function renderError(error) {
