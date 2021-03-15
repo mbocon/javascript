@@ -37,5 +37,9 @@ $(() => {
 
 	function renderError(error) {
 		$location.text('Sorry, ' + error.responseJSON.message);
+		$temp.text('');
+		$feels.text('');
+		$weather.text('');
+
 	}
 });
