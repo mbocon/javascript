@@ -1,6 +1,6 @@
 # Purpose of this repo
 
-This repo is used to house my javascript projects 
+This repo is used to house my javascript projects and practice
 
 ## Technologies Used
 - HTML5
