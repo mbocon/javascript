@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(23, 23, 23);
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    color: rgb(225, 225, 225);
+    align-items: center;
+    /* justify-content: center; */
+    height: 100vh;
+}
+
+h1  {
+    margin-bottom: 1rem;
+}
+button {
+    background-color: rgb(184, 70, 70);
+    margin-right: .5rem;
+    padding: .5rem 1rem;
+    width: fit-content;
+    border-radius: .25rem;
+    outline: none;
+    border: none;
+    color: rgb(220, 220, 220);
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: red;
+    color: #fff;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    /* padding-left: 2rem; */
+    width: 75%;
+    margin: 1rem auto;
+}
+
+li {
+    list-style-type: none;
+    display: flex;
+    padding: .5rem;
+    width: 25%;
+    /* justify-content: space-between; */
+    /* flex-wrap: wrap; */
+}
+
+a  {
+    width: fit-content;
+    /* padding: 0 2px; */
+    text-decoration: none;
+    color: ghostwhite;
+    display: flex;
+    align-items: center;
+    
+}
+
+.add-skill-a {
+    margin-top: 2rem;
+    background-color: rgb(5, 105, 5);
+    padding: .25rem 1rem;
+    border-radius: .5rem;
+}
+
+.add-skill-a:hover {
+    background-color:rgb(2, 164, 2);
+    color: white;
+}
+
+.skill-a {
+    color: rgb(181, 181, 181);
+}
+.skill-a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.new-input, .input-skill  {
+    padding: .4rem;
+}
+
+label {
+    font-size: 1.25rem;
+}
+
+.show-skill-page  {
+    font-size: 1.5rem;
+}
+
+.show-skill-div{
+    display: flex;
+    width: fit-content;
+}
+
+.show-skill-div a, .go-to-skills {
+    margin: 1rem;
+    color: grey;
+}
+
+.show-skill-div a:hover, .go-to-skills:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.show-skill-h1 {
+    color: rgb(174, 173, 173);
+}
+.show-skill-h3 {
+    margin: 1rem;
+}
+
+.edit-skill-a {
+    color: rgb(184, 70, 70);
+}
+
+.edit-skill-a:hover{
+    text-decoration: underline;
+    color: red;
+}
