@@ -1981,7 +1981,7 @@ const linkedinCompaniesObj = {
 };
 
 Object.entries(linkedinCompaniesObj).forEach(company => {
-	console.log("NAME : ", company[0], "LINKEDIN URL : ", company[1]);
+	console.log(`${company[0]} can be found on LinkedIn at ${company[1]}`)
 });
 
 
