@@ -7,9 +7,9 @@ $(() => {
 		url: `https://api.imgflip.com/get_memes`,
 	}).then(
 		result => {
-			// data is holding the json object from open weather api
-			// display data
+			// result var is holding the json object from the api
 			console.log(result.data.memes);
+			// display result
 			render(result.data.memes);
 		},
 		error => {
@@ -17,11 +17,10 @@ $(() => {
 			console.log(error);
 		},
 	);
-
+      // result.data.memes is the arg -> data is the param for it
 	function render(data) {
         const $ul = $('<ul></ul>')
 		data.forEach(item => {
-			console.log(item.url, 'to append');
 			const $img = $('<img />', {
 				src: item.url,
 				alt: item.name,
@@ -33,3 +32,5 @@ $(() => {
 		});
 	}
 });
+
+

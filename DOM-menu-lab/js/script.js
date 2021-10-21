@@ -1,8 +1,8 @@
 const mainEl = document.querySelector('main');
 
-const mainStyle = 'background-color: var(--main-bg)';
+const userColorChoice = document.querySelector('.dropdown-menu').innerHTML()
 
-mainEl.style = mainStyle;
+mainEl.style = userColorChoice;
 
 mainEl.textContent = 'SEI Rocks!';
 
