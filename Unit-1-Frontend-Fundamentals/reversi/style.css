@@ -1,0 +1,322 @@
+/* *{
+    border: 1px solid gainsboro;
+} */
+
+body{
+    font-family: 'Federo', sans-serif;
+    background-color: rgb(33, 35, 37);
+    color: gainsboro;
+}
+
+button{
+    font-family: 'Spartan', sans-serif;
+}
+
+/* Overall Layout */
+h1{
+    font-size: 50px;
+    margin: 5px 0;
+}
+
+.container-all{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+   
+}
+
+.container-scorecard{
+    width:20%;
+    height: 900px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glowing{
+    box-shadow: goldenrod 0 0 30px;
+}
+
+.scorecard{
+    width: 250px;
+    min-height: 250px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    outline: 5px ridge gainsboro;
+}
+
+#white-scorecard{
+    background-color:rgb(228, 234, 238);
+    color:rgb(33, 35, 37)
+}
+
+#black-scorecard{
+    background-color:rgb(15, 16, 17)
+}
+
+.scorecard h3{
+    margin: 0;
+    text-align: center;
+    font-size: 30px;
+}
+
+.scorecard img{
+    width: 125px;
+    height: 125px;
+    display: block;
+    /* margin: 20px; */
+}
+
+.score{
+    text-align:center;
+    font-size: 80px;
+}
+
+.container-center{
+    width:60%;
+    height:900px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+/* Options Menu */
+.modal-content{
+    outline: solid white 10px;
+    color: rgb(33, 35, 37);
+
+}
+
+.click-to-close-note{
+    font-style: italic;
+    color: gray;
+    text-align:center;
+    font-family: 'Spartan', sans-serif;
+
+}
+
+
+#options-bar{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+
+#options-bar button, .modal button{
+    font-size: 20px;
+    padding: 5px;
+    margin: 10px 5px;
+    width: 200px;
+}
+
+.caption-container p{
+    margin-top: 5px;
+    padding: 5px 10px;
+    text-align: justify;
+}
+
+.caption-container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-mode-container{
+    display:flex;
+
+}
+
+input{
+    font-size: 25px;
+}
+
+/* Gameboard and Tiles */
+.container-gameboard{
+    flex-grow: 3;
+    background-color: black;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    outline: 5px ridge gainsboro;
+    background-image: url(images/black_marble.png);
+    background-repeat: repeat;
+
+}
+
+/* the point at which the board and scorecards can no longer fit on the screen
+is 1140 px wide. that will be the breakpoint.
+
+on "mobile", the containter-all should become a column flexbox,
+and the white player's scorecard must justify-self to the bottom.
+
+then, the two scorecards must align-self to either side, so that the are side by side.
+*/
+
+#gameboard{
+    height: 650px;
+    width: 650px;
+    background-color:white;
+    display:flex;
+    flex-direction: column;
+    background-image: url(images/tan_marble.png);
+    outline: 4px outset rgb(70, 48, 40);
+}
+
+h1{
+    text-align:center;
+}
+
+.row{
+    display:flex;
+    height: 12.5%;
+}
+
+.space{
+    width: 12.5%;
+    height: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-top-color:gray;
+    border-left-color:gray;
+}
+
+/*tiles created via capture have a special class that creates the following effects:
+    - they START as the OPPOSITE color
+    - they automatically play the flip animation when they appear
+*/
+.capture-white{
+    -webkit-animation: black-to-white 0.8s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+	        animation: black-to-white 0.8s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+}
+
+.capture-black{
+    -webkit-animation: white-to-black 0.8s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+	        animation: white-to-black 0.8s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+}
+
+.white-tile{
+    background-color:white;
+    border-radius: 50%;
+    border: 2px solid gray;
+    width: 80%;
+    height: 80%;
+}
+
+.black-tile{
+    background-color: rgb(41, 41, 41);
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 80%;
+    height: 80%;
+}
+
+/*NB: it's possible to maintain aspect ratio by setting
+both height and width relative to viewport-width
+
+also possible for font size*/
+
+/*Modals*/
+
+/* Copied from W3Schools */
+.modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+}
+
+.divider-bar{
+    border-top: 3px solid gray;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2020-4-3 19:39:46
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation flip-vertical-right
+ * ----------------------------------------
+ */
+ @-webkit-keyframes black-to-white {
+    0% {
+      -webkit-transform: rotateY(0);
+              transform: rotateY(0);
+              background-color:rgb(41, 41, 41);
+              border-color: black;
+    }
+    100% {
+      -webkit-transform: rotateY(180deg);
+              transform: rotateY(180deg);
+              background-color:white;
+              border-color:gray;
+    }  
+  }
+  @keyframes black-to-white {
+    0% {
+      -webkit-transform: rotateY(0);
+              transform: rotateY(0);
+              background-color:rgb(41, 41, 41);
+              border-color: black;
+    }
+    100% {
+      -webkit-transform: rotateY(180deg);
+              transform: rotateY(180deg);
+              background-color:white;
+              border-color:gray;
+    }  
+  }
+
+  @-webkit-keyframes white-to-black {
+    0% {
+      -webkit-transform: rotateY(0);
+              transform: rotateY(0);
+              background-color:white;
+              border-color:gray;
+           
+    }
+    100% {
+      -webkit-transform: rotateY(180deg);
+              transform: rotateY(180deg);
+              background-color:rgb(41, 41, 41);
+              border-color: black;
+    }  
+  }
+  @keyframes white-to-black {
+    0% {
+      -webkit-transform: rotateY(0);
+              transform: rotateY(0);
+              background-color:white;
+              border-color:gray;
+              
+    }
+    100% {
+      -webkit-transform: rotateY(180deg);
+              transform: rotateY(180deg);
+              background-color:rgb(41, 41, 41);
+              border-color: black;
+    }  
+  }
+  

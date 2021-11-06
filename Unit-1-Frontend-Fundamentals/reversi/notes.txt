@@ -1,0 +1,151 @@
+> User stories thing-- step by step of what the user should experience
+> what new things did you learn?
+> design process
+> what was the biggest challenge
+> summarize the big mechanic
+> photo of the wireframe skethces????
+
+>probably, go to office hours for guidance on readme
+
+>read the assignment itself over and over for all those little specifics they want
+
+>script your presentation!!!!!
+
+>assessment will inlcude getting input from a from
+
+
+------
+
+Things to put in options:
+    - turn "highlight possible captures" on and off
+    RESOLVED
+
+-during "must flip", needs some kind of "cannot play piece here" alert
+RESOLVED.
+
+-in "capturePossbile" : need to fix the point where alert fires off
+    > tiny delay, like 1 millisecond, will be enough to make sure the alert appears
+       AFTER the previous turn's move appears on the gameboard  
+RESOLVED.
+
+- insert the if statements for 'classic' and 'gameOn' booleansc
+RESOLVED;
+
+{
+- something the "show possible captures" button does is interfering
+    with the ability to start a new game in Classic mode. but it only happens sometimes.
+    the error seems to be that capturePossbile is sending out pings
+    that assume white tiles are enemies, despite it being White's turn
+    turn switch is forced to true when a new classic game starts,
+    so is it even possible that turnswitch is the problem?
+
+    inversePing uses turn switch to determine which tiles are friends or enemies.
+    is this the source of the error?
+}
+RESOLVED: it was a typo in the resetBoard() function-- 'turnswitch' was misspelled,
+and thus never actually reset. Haaaaa.
+
+The possibility of AI:
+    - the solution begins with detaching the .space class' on-click event
+    and making it a separate function. That way, said function could be called
+    by BOTH the on-click of .space, AND  by whatever is controlling the computer
+    opponent's moves.
+
+ANIMATION WORKS PERFECTLY
+
+DETECTING WIN/LOSE
+
+- EASY: when the board is filled, whomstever has more tiles wins!
+RESOLVED
+
+- HARD: when both players have no valid moves left, whoever has more tiles wins
+RESOLVED
+
+----
+Presentation Notes:
+
+
+>the board is a flexbox of eight rows
+>each row is flexbox of eight boxes
+>they are generated at page load with a nested for-loop
+>each box's jquery identity is stored in an array of arrays that 
+    matches the structure of the divs themselves
+>so each box has a set of coordinates that can be accessed by JS
+>navigating around the grid becomes a matter of manipulating coordinates.
+
+>the on-click event of each individual space triggers all the other code.
+>this is somewhat analogous to the 'update' function in traditional game development
+>all the info is updated when you click, and between clicks the game is essentially frozen
+
+>'whose turn is it' is a boolean, that's used for a lot of if-statements.
+
+>each space is a flexbox that has another div representing the tile centered within it.
+
+> Ping system
+    >eight direction in a hard-coded array
+    >use an xy pair to represent directions
+    >basically 2D vectors pointing the eight compass directiopns
+    >two kinds of ping
+        >the ping that detects a space where you can put a tile
+        looks for a row of enemies followed by a blank space. it returns a list
+        of blank spaces that qualify
+        > the ping that handles capturing looks for a row of enemies
+        followed by a friendly tile, makes a list of all the enemy tiles it finds,
+        then 'flips' them.
+    >the ping only goes in one direction, its nested within a function that calls
+    it eight times using the hard-coded direction list.
+
+>capture check finds the event.currentTarget's location within the grid
+    >first, search the grid for the row that contains our target
+        >the target's index in the row is the X coordinate.
+    >then ask grid for the index of the row where we found the space.
+        >the row's index is the Y coordinate.
+
+
+>when a tile is placed, a capture ping is sent out.
+
+>AFTER that, an inverse "where can I capture"? ping is sent out from every enemy tile
+>so that on the next turn, the game will have a list of spaces where a valid move can be made
+
+the grid is searhced for every tile of that color, and eight inverse pings are sent
+out from each one.
+
+>as the game goes on the process gets more and more bulky-- on EVERY turn,
+ all tiles on the board are going to be sending out eight "can I capture?" pings
+
+>detecting Valid move
+    >no previously clicked space
+    >the ping system gives a special class to boxes that will accomplish captures
+
+
+> How is the win state detected?
+    >the same code that works to display possible moves is used to detect
+    when there AREN'T any possible moves!
+    >if that's the case for both players, the game is over.
+
+> I concieved of the endCounter like a deuce in tennis-- where it has to happen
+    twice in a row to get to the end state, and gets reset if it doesn't
+
+>win state notifications are on a short timer so that they don't appears
+before the board itself updates.
+
+> Showcase all possible error messages!
+    >'click new game'
+    >'you can't do that in Classic Mode'
+
+>ANIMATION
+    >give credit to animista
+    >but I soon realized that animista's example relied on two elements occupying
+    the exact same place on the page, both with invisible backs. I didn't want to do that
+    because I was using the placement of divs for game mechanics.
+    >when a tile is flipped, the old tile disappears, and a new tile spawns in
+    >but that new tile has a sepcial class that assigns it an animation that makes it 
+     START as the same color of the tile that disappeared, then turns the color it was meant
+     to be, alongisde a flip animation. this creates the illusion that the old tile transformed
+
+>UNRESOLVED ISSUES
+    >never programmed AI  
+    >came up with a way for it to strategize: the inverse ping has a way of
+    detecting how much 'damage' a move will do: how many tiles will be flipped in total
+    >all tiles flip at once. originally wanted a kind of cascade effect where
+    flips would radiate out from the tile that was just placed.

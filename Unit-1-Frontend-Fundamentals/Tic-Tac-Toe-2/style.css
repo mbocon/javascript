@@ -1,0 +1,68 @@
+/* Reset CSS */
+
+/* Zero out user agent stylesheets */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Helvetica;
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    background-color: cornflowerblue;
+    height: 50px;
+    color: white;
+    box-shadow: 1px 1px 3px 2px lightslategray;
+}
+
+
+ /* Flexbox is a CSS specification for positioning elements uniformly
+ It's primarily used for creating layouts */
+
+ section {
+     display: flex; /* this creates a flex container -> all child elements become flex items */
+     width: 600px;
+     flex-wrap: wrap;
+     margin: auto;
+ }
+
+
+ /* Helper CSS Classes */
+.left {
+    border-left: 3px solid cornflowerblue;
+}
+
+.right {
+    border-right: 3px solid cornflowerblue;
+}
+
+.top {
+    border-top: 3px solid cornflowerblue;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 900px;
+    padding: 20px;
+}
+
+
+.square {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 75px;
+}

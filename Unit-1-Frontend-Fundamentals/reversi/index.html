@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Federo&family=Spartan&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    <title>Reversi</title>
+</head>
+<body>
+    <div class="container-all">
+        <!--White Scorecard-->
+        <div class="container-scorecard">
+            <div class="scorecard" id="white-scorecard">
+                <h3 id="white-player-name">White</h3>
+                <div class="score" id="white-score">0</div>
+            </div>
+        </div>
+        <!--Gameboard & Options Bar-->
+        <div class="container-center">
+            <h1>REVERSI</h1>
+            <div class="container-gameboard">
+                <div id="gameboard">
+                    <!--hahah holy shit the things that are gonna go here-->
+                </div>
+            </div>
+            <div id="options-bar">
+                <button id="new-game-btn">New Game</button>
+                <button id="rules-btn">Rules</button>
+                <button id="options-btn">Options</button>
+            </div>
+        </div>
+        <!--Black Scorecard-->
+        <div class="container-scorecard">
+            <div class="scorecard" id="black-scorecard">
+                <h3 id="black-player-name">Black</h3>
+                <div class="score" id="black-score">0</div>
+            </div>
+        </div>
+    </div>
+    <!--Rules Modal-->
+    <div class="modal" id="rules-modal">
+        <div class="modal-content" id="rules-modal-content">
+            <h2>Rules of Reversi</h2>
+            <div class="divider-bar"></div>
+            <p>Reversi is a game for two players. Players take turns placing tiles on the board, one at time. When a row of one player's tiles are completely surrounded by the other player's--horiztonally, vertically, or diagonally-- the surrounded tiles are captured by the other player, and flipped to that player's color. The game ends when either the entire board is filled up, or no valid moves are possible. The goal of the game is to have more tiles of your color on the board than your opponent when the game ends.</p>
+            <p class="click-to-close-note">click anywhere to close</p>
+        </div>
+    </div>
+    <!--Options Modal-->
+    <div class="modal" id="options-modal">
+        <div class="modal-content" id="options-modal-content">
+            <h2>Options</h2>
+            <div class="divider-bar"></div>
+            <button id="highlight-capture-btn">Show Possible Captures: OFF</button>
+            <div class="divider-bar"></div>
+            <p>Customize Player Names</p>
+            <form id="custom-names">
+                <label for="white-name">Player 1:</label><br>
+                <input type="text" id="white-name" name="white-name" value="White"><br>
+                <label for="black-name">Player 2:</label><br>
+                <input type="text" id="black-name" name="black-name" value="Black"><br><br>
+                <input type="submit" value="Submit">
+              </form> 
+            <p class="click-to-close-note">click anywhere to close</p>
+        </div>
+    </div>
+    <!--Select Game Mode Modal-->
+    <div class="modal" id="select-modal">
+        <div class="modal-content" id="select-modal-content">
+            <h2>Select Game Mode</h2>
+            <div class="divider-bar"></div>
+            <div class="game-mode-container">
+                <div class="caption-container">
+                    <button id="start-new-classic-btn" class="start-button">Classic</button>
+                    <p>In Classic Reversi, the game begins with four tiles in the center, and every move a player makes must capture at least one tile.</p>
+                </div>
+                <div class="caption-container">
+                    <button id="start-new-freeform-btn" class="start-button">Freeform</button>
+                    <p>In Freeform Reversi, the game begins with the board empty, and players may place tiles in any free space.</p>
+                </div>
+            </div>
+            <p class="click-to-close-note">click anywhere to close</p>
+        </div>
+    </div>
+    <!--Win Screen-->
+    <div class="modal" id="win-modal">
+        <div class="modal-content" id="win-modal-content">
+            <h2><span id="winner">Somebody</span>!</h2>
+            <p class="click-to-close-note">Click anywhere to close</p>
+        </div>
+    </div>
+</body>
+</html>
